@@ -1,5 +1,5 @@
-# 1.1
-print('1.1')
+# 2.1
+print('2.1')
 import copy
 
 original = [
@@ -52,13 +52,13 @@ print_state('Первое изменение')
 original[0][1] = 3
 print_state('Второе изменение')
 
-# 1.2
-print('\n1.2')
+# 2.2
+print('\n2.2')
 wrong_matrix = [[0] * 3] * 3
 wrong_matrix[0][0] = 1
 
 print('wrong_matrix', wrong_matrix)
-print('Sid:', id(wrong_matrix[0]), id(wrong_matrix[1]), id(wrong_matrix[2]))
+print('id:', id(wrong_matrix[0]), id(wrong_matrix[1]), id(wrong_matrix[2]))
 
 correct_matrix = [[0] * 3 for _ in range(3)]
 correct_matrix[0][0] = 1
