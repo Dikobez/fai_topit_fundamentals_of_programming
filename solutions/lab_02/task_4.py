@@ -1,7 +1,7 @@
 import gc
 
 # 4.1
-print('4.1 -------------------')
+print('=== 4.1 ===')
 first = []
 second = []
 
@@ -29,9 +29,8 @@ print("\nИмена first и second удалены.")
 collected = gc.collect()
 print(f"Ручной вызов gc.collect() собрал объектов: {collected}")
 
-
 # 4.2
-print("\n4.2 --- Отключение GC ---")
+print("\n=== 4.2 --- Отключение GC ===")
 gc.disable()
 print("Автоматический GC отключен. Статус:", gc.isenabled())
 
@@ -52,9 +51,8 @@ print(f"Собрано объектов при ручном вызове: {colle
 gc.enable()
 print("Автоматический GC снова включен:", gc.isenabled())
 
-
 # 4.3
-print("\n4.3 --- Практическая задача: Граф ---")
+print("\n=== Практическая задача ===")
 
 gc.collect()
 
