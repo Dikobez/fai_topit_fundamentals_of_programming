@@ -1,7 +1,8 @@
 import sys
 import weakref
 
-# 1.1
+# 3.1
+print('=== 3.1 ===')
 data = [1, 2, 3]
 print("После создания:", sys.getrefcount(data))
 
@@ -17,7 +18,10 @@ print("После del alias:", sys.getrefcount(data))
 container.clear()
 print("После очистки контейнера:", sys.getrefcount(data))
 
-# 1.2
+# 3.2
+print('\n=== 3.2 ===')
+
+
 class Record:
     pass
 
@@ -29,15 +33,17 @@ print(weak_record())
 del record
 print(weak_record())
 
-
 # practise
-print("\n--- Практическая задача: Слабый реестр ---")
+print("\n=== Практическая задача ===")
+
 
 class DataRecord:
     def __init__(self, name):
         self.name = name
+
     def __repr__(self):
         return f"DataRecord({self.name})"
+
 
 registry = weakref.WeakValueDictionary()
 
