@@ -1,4 +1,5 @@
 ### exp A
+print('=== exp A ===')
 a = 10
 b = a
 
@@ -11,9 +12,11 @@ print(a, b)
 print(id(a), id(b))
 
 ### exp B
+print('\n=== exp B ===')
 first = [10, 20]
 second = first
 
+print(id(a), id(b))
 print(first, second)
 print(id(first), id(second))
 
@@ -23,14 +26,17 @@ print(first, second)
 print(id(first), id(second))
 
 ### Added
+print('\n=== extra ===')
 second = [10, 20]
 print('==', first == second)
 print('is', first is second)
 second.append(40)
 print('Первый после изменения второго:', first)
 print(second)
+print(id(first), id(second))
 
 ### Practise
+print('\n                                    Практическая задача')
 import copy
 
 config1 = {
@@ -39,7 +45,7 @@ config1 = {
     "launch_params": ["--debug", ["--port", "8080", "--env", "dev"]]
 }
 
-print("\n=== ПРОСТОЕ ПРИСВАИВАНИЕ ===")
+print("=== ПРОСТОЕ ПРИСВАИВАНИЕ ===")
 print("Исходная config1: ", config1)
 
 config2_shared = config1
@@ -49,8 +55,6 @@ config2_shared["launch_params"][1][1] = "9090"
 print("\nПосле изменения config2_shared:")
 print("config1:        ", config1)
 print("config2_shared: ", config2_shared)
-
-
 
 config3_independent = copy.deepcopy(config1)
 
@@ -65,7 +69,6 @@ config3_independent["launch_params"][1][1] = "3000"
 print("\n=== 2. ПОСЛЕ СОЗДАНИЯ НЕЗАВИСИМОЙ КОПИИ ===")
 print("config1:             ", config1)
 print("config3_independent: ", config3_independent)
-
 
 print("\n=== ИТОГ ===")
 print(f"1. config1 и config2_shared:")
