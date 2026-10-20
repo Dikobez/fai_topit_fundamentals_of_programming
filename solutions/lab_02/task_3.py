@@ -29,9 +29,9 @@ class Record:
 record = Record()
 weak_record = weakref.ref(record)
 
-print(weak_record())
+print('record:', weak_record())
 del record
-print(weak_record())
+print('после del record:', weak_record())
 
 # practise
 print("\n=== Практическая задача ===")
