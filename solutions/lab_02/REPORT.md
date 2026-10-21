@@ -15,7 +15,7 @@ graph LR
     first((first)) --> list1["Объект: [10, 20, 30] (list)<br/>id: 2360507671552"]
     second((second)) --> list1
     
-    style list1 fill:#fffff,stroke:#333,stroke-width:2px
+    style list1 fill:#800000,stroke:#333,stroke-width:2px
 ```
 
 #### Схема 2. Связи после переназначения (разные независимые объекты)
@@ -24,8 +24,8 @@ graph LR
     first((first)) --> list1["Объект: [10, 20, 30] (list)<br/>id: 2360507671552"]
     second((second)) --> list2["Объект: [10, 20, 40] (list)<br/>id: 2360510053120"]
     
-    style list1 fill:#001556,stroke:#333,stroke-width:2px
-    style list2 fill:#005615,stroke:#333,stroke-width:2px
+    style list1 fill:#006400,stroke:#333,stroke-width:2px
+    style list2 fill:#4682B4,stroke:#333,stroke-width:2px
 ```
 
 ### Практическая задача:
@@ -165,10 +165,10 @@ graph TD
         C
     end
     
-    style A fill:#fffff,stroke:#333
-    style B fill:#fffff,stroke:#333
-    style C fill:#fffff,stroke:#333
-    style D fill:#fffff,stroke:#333
+    style A fill:#708090,stroke:#333
+    style B fill:#708090,stroke:#333
+    style C fill:#708090,stroke:#333
+    style D fill:#708090,stroke:#333
 ```
 ## Сопоставление с кодом и результаты
 #### Были созданы 4 словаря (`node_a`, `node_b`, `node_c`, `node_d`). Словари в Python поддерживают циклические ссылки, поэтому они автоматически добавляются под наблюдение GC.
