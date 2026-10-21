@@ -152,7 +152,7 @@ graph LR
 
 ## 4.3 mermaid диаграмма
 ``` mermaid
-graph TD
+graph LR
     A((Узел A)) -->|next| B((Узел B))
     B -->|next| C((Узел C))
     C -->|next| A
