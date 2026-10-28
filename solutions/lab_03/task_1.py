@@ -10,7 +10,7 @@ def describe_work(work_type):
         case 'practice':
             work = 'практическая работа'
         case _:
-            work = 'Неизвестный тип работы'
+            work = 'неизвестная работа'
     return work
 
 
@@ -63,8 +63,8 @@ def sumup():
         if result is None:
             print(sc, wt, ab, "| Input error")
             continue
-
         w, lvl = result
+        print(sc, wt, ab, f" | Тип работы: {w}. Уровень: {lvl}" )
         studs[lvl] += 1
 
     summary = "\n".join(f"{key}: {value}" for key, value in studs.items())
