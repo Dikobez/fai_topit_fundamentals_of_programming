@@ -45,7 +45,7 @@ def student_summary(name, results):
     if not results:
         sumup = {
             'name': name,
-            'mean': -1,
+            'mean': None,
             'minimum': None,
             'maximum': None,
             'category': 'No data'
@@ -69,16 +69,19 @@ def find_top_students(students):
     means = []
     for name, result in students.items():
         stud_data = student_summary(name, result)
-        means.append((stud_data['mean'], name))
+        if stud_data['mean'] is not None:
+            means.append((stud_data['mean'], name))
 
     means.sort(reverse=True)
+    if not means:
+        return None, []
     highest_score = means[0][0]
     leads = []
 
     for score, name in means:
         if score == highest_score:
             leads.append(name)
-    return leads
+    return highest_score, leads
 
 
 def group_summary(students):
@@ -90,21 +93,22 @@ def group_summary(students):
         'отличный': 0,
         'No data': 0
     }
-    students_rating = students.copy()
     if not students:
-        return None, [], cats, -1, {}
+        return None, [], cats, None, {}
     means_for = []
     for name, result in students.items():
         stud_data = student_summary(name, result)
-        means.append((stud_data['mean'], name))
+        if stud_data['mean'] is not None:
+            means.append((stud_data['mean'], name))
         cats[stud_data['category']] += 1
         means_for += students[name]
 
     means.sort(reverse=True)
-    highest_score = means[0][0]
-
-    gen_mean = mean(means_for)
-    leads = find_top_students(students)
+    gen_mean=None
+    if means:
+        gen_mean = mean(means_for)
+    highest_score, leads = find_top_students(students)
+    students_rating = {}
 
     for i, (score, name) in enumerate(means):
         students_rating[name] = i + 1
@@ -114,22 +118,27 @@ def group_summary(students):
 
 def format_report(student_data, group_data):
     highest_score, leads, cats, gen_mean, students_rating = group_summary(group_data)
-
-    output_group = f'''leaders with score {highest_score}: {', '.join(leads)}
+    if gen_mean is not None:
+        gen_mean = round(gen_mean, 2)
+    output_group = f'''leaders with score {highest_score}: {', '.join(leads) if leads else None}
 \nstudents in categories:
     недостаточный: {cats['недостаточный']}
     удовлетворительный: {cats['удовлетворительный']}
     хороший: {cats['хороший']}
     отличный: {cats['отличный']}               
-\nmean score of whole group: {gen_mean:.2f}
+\nmean score of whole group: {gen_mean}
 \nstudents rating:
-{'\n'.join([f"{nm}: {val}" for nm, val in students_rating.items()])}\n                             
+{'\n'.join([f"{nm}: {val}" for nm, val in students_rating.items()]) if students_rating else None}\n                             
 '''
 
     output_students = ''
     for out in student_data:
-        output_students += '\n'.join(
-            [f'{info}: {data}' if info != 'mean' else f'{info}: {data:.2f}' for info, data in out.items()]) + '\n\n'
+        for info, data in out.items():
+            if info == 'mean' and data is not None:
+                output_students += '\n' + f'{info}: {data:.2f}'
+                continue
+            output_students += '\n' + f'{info}: {data}'
+        output_students += '\n'
 
     return output_group + output_students
 
@@ -149,7 +158,7 @@ students2 = {
     "Анна": [78, 91, 84, 88],
     "Борис": [66, 95, 86, 94],
     "Дарья": [85.25],
-    "Илья": [89.5],
+    "Илья": [81.5],
 }
 
 students3 = {
@@ -163,6 +172,13 @@ students4 = {
     "Илья": [55, 61],
 }
 
+students6 = {
+    "Анна": [],
+    "Борис": [],
+    "Дарья": [],
+    "Илья": [],
+}
+
 students5 = {
     "Анна": [60, 60, 60],
     "Борис": [74, 74],
@@ -170,7 +186,7 @@ students5 = {
     "Илья": [55, 61],
 }
 
-for i, group in enumerate([students, students1, students2, students3, students4, students5]):
+for i, group in enumerate([students, students1, students2, students3, students4, students5, students6]):
     students_summary = [student_summary(n, r) for n, r in group.items()]
     print(f'================ students{i} ================')
     print(format_report(students_summary, group))
