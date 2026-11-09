@@ -46,11 +46,22 @@ def classification(result, work_type, absences):
 
 ## Задание 2. Циклы и базовые алгоритмические схемы 
 
+| Результат | Асимптотика |
+|:---|:---|
+| сумма:  144 | O(n) |
+| минимальное значение:  7 | O(n) |
+| максимальное значение:  21 | O(n) |
+| количество четных чисел:  4 | O(n) |
+| количество значений, больших ср. арифм.:  4 | O(n) |
+| линеный поиск введенного числа:  -1 | O(n) |
+
 ### Дополнительный алгоритмический эксперимент
+
+<img width="597" height="405" alt="image" src="https://github.com/user-attachments/assets/c4ccf35e-0c61-45e1-8c87-c86c6cfc20c5" />
 
 #### Временная сложность алгоритмов:
 Проверка числа на простоту - сложность $O(\sqrt(x))$
-Бинарный поиск - сложность $O(log n)$
+Бинарный поиск - сложность $O(\log n)$
 Линейный поиск - сложность $O(n)$
 
 #### От какого параметра зависит число операций?
@@ -76,8 +87,16 @@ def classification(result, work_type, absences):
 
 ## Задание 3. Коллекции и выбор структуры данных
 
-#### Добавьте новую запись и обновите структуры без полного повторного построения. Объясните, почему:
+<img width="972" height="641" alt="image" src="https://github.com/user-attachments/assets/3a27cafd-d9bc-4154-a3a9-753413bc7bf3" />
 
+
+### Добавьте новую запись и обновите структуры без полного повторного построения. 
+
+##### Результат добавления:
+<img width="1035" height="770" alt="image" src="https://github.com/user-attachments/assets/b5cbb109-0543-41d8-b5b8-d824f569d154" />
+
+
+### Объясните, почему:
 #### Множество подходит для хранения уникальных значений;
 В основе множества лежит хэш-таблица. При добавлении элемента Python вычисляет его уникальный хэш и определяет для него ячейку памяти. Если элемент с таким хэшем и значением уже существует в множестве, дубликат просто перезаписывает старое место или игнорируется.
 
@@ -103,8 +122,15 @@ def classification(result, work_type, absences):
 | Поиск конкретной попытки внутри списка | `O(n)` | Для поиска по содержимому список приходится просматривать последовательно |
 | Пересечение множеств студентов двух работ | `O(min(s1, s2))` в среднем | Элементы меньшего множества проверяются на наличие в большем |
 
+### Практическое расширение 
+<img width="747" height="171" alt="image" src="https://github.com/user-attachments/assets/fb1d91f1-0e56-459d-84fc-f5f3798b56ce" />
+
 
 ## Задание 4. Функции, параметры и области видимости
+
+<img width="518" height="776" alt="image" src="https://github.com/user-attachments/assets/da7652e4-4d31-4fbd-8a92-87630a142c89" />
+
+
 ### Схема LEGB
 
 ``` mermaid
@@ -129,6 +155,9 @@ B["B - Built-in<br/>print(), len(), sum()"]
 
 ### Исследование LEGB
 
+<img width="570" height="164" alt="image" src="https://github.com/user-attachments/assets/150ea12e-c059-4525-bf1d-400b0c126c87" />
+
+
 В Python поиск идет по четырем областям видимости:
 
 1. **Local (L)** - локальная область текущей функции.
@@ -152,6 +181,9 @@ B["B - Built-in<br/>print(), len(), sum()"]
 
 ### Ошибка изменяемого значения по умолчанию
 
+<img width="590" height="317" alt="image" src="https://github.com/user-attachments/assets/820d12c9-6114-4291-9981-cddfdd3786fd" />
+
+
 В Python значения параметров по умолчанию вычисляются один раз в момент определения функции, а не при каждом её вызове.
 
 В исходной реализации функции `add_result()` в качестве значения по умолчанию используется пустой список. Поскольку
@@ -168,6 +200,9 @@ B["B - Built-in<br/>print(), len(), sum()"]
 продолжает работать с переданным объектом.
 
 ### Практическая задача
+
+<img width="513" height="281" alt="image" src="https://github.com/user-attachments/assets/03453f68-0c87-431d-9083-fe733c9f7bb2" />
+
 
 1. Функция `apply_to_results(operation, values)` принимает функцию-операцию и последовательность результатов. В
    цикле каждый элемент передаётся в функцию-операцию, а полученное значение добавляется
@@ -305,6 +340,57 @@ B["B - Built-in<br/>print(), len(), sum()"]
 
 Функция объединяет информацию об отдельных студентах и общую статистику группы в единый текст. Для представления
 вещественных чисел применяется форматирование с двумя знаками после запятой.
+
+### Результат выполнения программы на семи вводных данных
+##### students0
+<figure>
+  <img width="451" height="914" alt="image" src="https://github.com/user-attachments/assets/bc0cbb84-b335-4375-ae0e-7d95b1ac73db" />
+  <br>
+  <figcaption><i>students0 - обычный набор данных</i></figcaption>
+</figure>
+
+##### students1
+<figure>
+  <img width="454" height="452" alt="image" src="https://github.com/user-attachments/assets/bb93982e-a120-4e37-8d83-59796e68351c" />
+  <br>
+  <figcaption><i>students1 - один студент</i></figcaption>
+</figure>
+
+##### students2
+<figure>
+  <img width="456" height="920" alt="image" src="https://github.com/user-attachments/assets/8f069a1d-1dae-4dd5-aa48-04fc172985b7" />
+  <br>
+  <figcaption><i>students2 - несколько лидеров</i></figcaption>
+</figure>
+
+##### students3
+<figure>
+  <img width="444" height="302" alt="image" src="https://github.com/user-attachments/assets/07083509-4e9c-4e5a-9008-663e2bb37037" />
+  <br>
+  <figcaption><i>students3 - пустая группа</i></figcaption>
+</figure>
+
+##### students4
+<figure>
+  <img width="455" height="893" alt="image" src="https://github.com/user-attachments/assets/26e17910-81d9-400a-81b9-014f22eea580" />
+  <br> 
+  <figcaption><i>students4 - студент без результатов</i></figcaption>
+</figure>
+
+##### students5
+<figure>
+  <img width="448" height="925" alt="image" src="https://github.com/user-attachments/assets/41438b85-7fab-412b-9077-0820e15d4dd9" />
+  <br>
+  <figcaption><i>students5 - граничные значения категорий</i></figcaption>
+</figure>
+
+##### students6
+<figure>
+  <img width="452" height="848" alt="image" src="https://github.com/user-attachments/assets/16fb00e6-c522-4aec-9195-03b118c3e9bc" />
+  <br>
+  <figcaption><i>students6 - группа без результатов</i></figcaption>
+</figure>
+
 
 ## Декомпозиция программы
 
