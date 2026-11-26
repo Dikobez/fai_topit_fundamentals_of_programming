@@ -292,6 +292,58 @@ Course как итерируемый объект (список студенто
 ```
 
 
+### Результат работы алгоритма:
+```
+----- методы класса Course -----
+Количество студентов на курсе: 5
+Топ студентов на курсе: [Student(student_id='S005', name='Иван Ведерников'), Student(student_id='S003', name='Евгений Вахранев'), Student(student_id='S002', name='Петр Петров')]
+Есть ли студент S005 на курсе: True
+Есть ли студент S010 на курсе: False
+
+Course как итерируемый объект (список студентов):
+Иван Иванов (S001) - попыток: 2, средний балл: 75.0
+Петр Петров (S002) - попыток: 1, средний балл: 81.4
+Евгений Вахранев (S003) - попыток: 3, средний балл: 82.0
+Джон Сина (S004) - попыток: 1, средний балл: 65.1
+Иван Ведерников (S005) - попыток: 2, средний балл: 91.7
+
+----- методы класса Student -----
+Студенты:
+Student(student_id='S001', name='Иван Иванов')
+Student(student_id='S002', name='Петр Петров')
+Student(student_id='S003', name='Евгений Вахранев')
+Student(student_id='S004', name='Джон Сина')
+Student(student_id='S005', name='Иван Ведерников')
+
+Количество работ студента S003: 3
+Работы студента S003: (Submission(student_id='S003', laboratory_id='lab_03', attempt=1, score=75.0, comment=''), Submission(student_id='S003', laboratory_id='lab_04', attempt=1, score=89.5, comment=''), Submission(student_id='S003', laboratory_id='lab_01', attempt=1, score=81.4, comment='work smart, not hard'))
+
+student3 как итерируемый объект (его лабораторные работы):
+Submission(student_id='S003', laboratory_id='lab_03', attempt=1, score=75.0, comment='')
+Submission(student_id='S003', laboratory_id='lab_04', attempt=1, score=89.5, comment='')
+Submission(student_id='S003', laboratory_id='lab_01', attempt=1, score=81.4, comment='work smart, not hard')
+
+Проверка на некорректные данные:
+Пустой ID (.from_full_name) - OK
+Пустой ID (default) - OK
+Отрицательное количество попыток - OK
+Балл за работу вне диапазона - OK
+
+----- методы класса Submission -----
+work10 == work12: False
+work14 == work13: True
+
+Проверка сортировки:
+(Submission(student_id='S001', laboratory_id='lab_01', attempt=1, score=85.0, comment=''), Submission(student_id='S001', laboratory_id='lab_03', attempt=1, score=65.1, comment=''), Submission(student_id='S001', laboratory_id='lab_01', attempt=2, score=84.0, comment=''), Submission(student_id='S001', laboratory_id='lab_01', attempt=3, score=84.0, comment=''), Submission(student_id='S001', laboratory_id='lab_01', attempt=4, score=90.0, comment=''))
+Попытка 1, балл 65.1 - лабораторная lab_03
+Попытка 1, балл 85.0 - лабораторная lab_01
+Попытка 2, балл 84.0 - лабораторная lab_01
+Попытка 3, балл 84.0 - лабораторная lab_01
+Попытка 4, балл 90.0 - лабораторная lab_01
+Исходный список не изменился:  [1, 1, 2, 3, 4]
+```
+
+
 #### Student
 ```
 ----- методы класса Student -----
